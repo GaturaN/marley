@@ -3,7 +3,7 @@
  "allow_events_in_timeline": 1,
  "allow_import": 1,
  "allow_rename": 1,
- "autoname": "naming_series:",
+ "autoname": "format:PAT-{DD}-{MM}-{YY}-{####}",
  "creation": "2017-01-23 14:03:49.084370",
  "description": "Patient",
  "doctype": "DocType",
@@ -15,6 +15,7 @@
   "first_name",
   "middle_name",
   "last_name",
+  "uid",
   "patient_name",
   "sex",
   "blood_group",
@@ -23,15 +24,21 @@
   "image",
   "column_break_14",
   "status",
-  "uid",
   "inpatient_record",
   "inpatient_status",
-  "report_preference",
   "mobile",
   "phone",
+  "address_of_stay",
+  "report_preference",
   "email",
   "invite_user",
   "user_id",
+  "next_of_kin_section",
+  "full_name",
+  "id_number",
+  "column_break_dcznb",
+  "phone_number",
+  "relation",
   "customer_details_section",
   "customer",
   "customer_group",
@@ -139,7 +146,8 @@
    "fieldtype": "Date",
    "in_preview": 1,
    "label": "Date of birth",
-   "no_copy": 1
+   "no_copy": 1,
+   "reqd": 1
   },
   {
    "fieldname": "age_html",
@@ -195,6 +203,7 @@
    "bold": 1,
    "fieldname": "mobile",
    "fieldtype": "Data",
+   "hidden": 1,
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Mobile",
@@ -345,6 +354,7 @@
    "collapsible_depends_on": "patient_details",
    "fieldname": "more_info",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "More Information",
    "oldfieldtype": "Section Break",
    "options": "fa fa-file-text"
@@ -367,7 +377,8 @@
    "fieldname": "last_name",
    "fieldtype": "Data",
    "label": "Last Name",
-   "no_copy": 1
+   "no_copy": 1,
+   "reqd": 1
   },
   {
    "fieldname": "first_name",
@@ -387,6 +398,7 @@
    "collapsible": 1,
    "fieldname": "customer_details_section",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Customer Details"
   },
   {
@@ -465,6 +477,7 @@
    "fieldtype": "Data",
    "in_standard_filter": 1,
    "label": "Identification Number (UID)",
+   "reqd": 1,
    "unique": 1
   },
   {
@@ -483,16 +496,57 @@
    "fieldname": "medical_history_tab",
    "fieldtype": "Tab Break",
    "label": "Medical History"
+  },
+  {
+   "fieldname": "address_of_stay",
+   "fieldtype": "Small Text",
+   "label": "Address of Stay",
+   "reqd": 1
+  },
+  {
+   "fieldname": "next_of_kin_section",
+   "fieldtype": "Section Break",
+   "label": "Next of Kin"
+  },
+  {
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "label": "Full Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "id_number",
+   "fieldtype": "Int",
+   "label": "ID Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "phone_number",
+   "fieldtype": "Data",
+   "label": "Phone Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "relation",
+   "fieldtype": "Select",
+   "label": "Relation",
+   "options": "Please select option:\nMother\nFather\nSibling\nGuardian",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_dcznb",
+   "fieldtype": "Column Break"
   }
  ],
  "icon": "fa fa-user",
  "image_field": "image",
  "links": [],
  "max_attachments": 50,
- "modified": "2023-01-13 17:48:59.069268",
+ "modified": "2024-07-27 01:34:21.527596",
  "modified_by": "Administrator",
  "module": "Healthcare",
  "name": "Patient",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
